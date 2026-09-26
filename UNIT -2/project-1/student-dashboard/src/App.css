@@ -1,0 +1,244 @@
+/* ===== Design tokens ===== */
+:root {
+  --bg-deep: rgb(16, 22, 36);
+  --bg-panel: rgb(26, 34, 54);
+  --bg-panel-raised: rgb(32, 42, 66);
+  --gold: rgb(214, 178, 84);
+  --gold-soft: rgb(214, 178, 84 / 0.15);
+  --teal: rgb(78, 199, 179);
+  --text-primary: rgb(232, 235, 244);
+  --text-muted: rgb(151, 161, 184);
+  --danger: rgb(224, 122, 95);
+  --success: rgb(96, 189, 132);
+  --border: rgb(255, 255, 255 / 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: rgb(16, 22, 36);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgb(38, 50, 78) 0%, transparent 45%),
+    radial-gradient(circle at 85% 100%, rgb(30, 44, 60) 0%, transparent 50%);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  padding: 56px 20px 40px;
+  position: relative;
+}
+
+.header-badge {
+  display: inline-block;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  border: 1px solid rgb(214, 178, 84 / 0.4);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.college-name {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: rgb(245, 247, 252);
+  text-shadow: 0 2px 18px rgb(214, 178, 84 / 0.25);
+}
+
+.dashboard-title {
+  margin: 10px 0 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.header::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 3px;
+  margin: 26px auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ===== Main layout ===== */
+.main-content {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Student Card ===== */
+.student-card {
+  background: rgb(26, 34, 54);
+  border: 1px solid rgb(255, 255, 255 / 0.07);
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  gap: 22px;
+  box-shadow: 0 18px 40px rgb(0, 0, 0 / 0.35);
+}
+
+@media (max-width: 520px) {
+  .student-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.student-photo {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  background: rgb(40, 50, 74);
+  flex-shrink: 0;
+}
+
+.student-name {
+  margin: 0 0 14px;
+  font-size: 26px;
+}
+
+.info-list {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.label {
+  color: var(--text-muted);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+}
+
+.status-block {
+  border-top: 1px dashed rgb(255, 255, 255 / 0.12);
+  padding-top: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.status-line {
+  margin: 0;
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-block;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.badge-eligible {
+  background: rgb(96, 189, 132 / 0.18);
+  color: rgb(120, 210, 155);
+  border: 1px solid rgb(96, 189, 132 / 0.4);
+}
+
+.badge-not-eligible {
+  background: rgb(224, 122, 95 / 0.18);
+  color: rgb(235, 150, 125);
+  border: 1px solid rgb(224, 122, 95 / 0.4);
+}
+
+/* ===== Subject List ===== */
+.subject-list {
+  background: rgb(26, 34, 54);
+  border: 1px solid rgb(255, 255, 255 / 0.07);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 18px 40px rgb(0, 0, 0 / 0.35);
+}
+
+.section-title {
+  margin: 0 0 18px;
+  font-size: 20px;
+  color: var(--gold);
+}
+
+.subjects {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.subject-chip {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 13px;
+  background: rgb(32, 42, 66);
+  border: 1px solid rgb(78, 199, 179 / 0.35);
+  color: var(--teal);
+  padding: 7px 14px;
+  border-radius: 8px;
+}
+
+.semester-info {
+  border-top: 1px dashed rgb(255, 255, 255 / 0.12);
+  padding-top: 16px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.semester-info p {
+  margin: 0;
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: 48px;
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid rgb(255, 255, 255 / 0.08);
+  color: var(--text-muted);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 13px;
+}
+
+.footer-sub {
+  margin: 4px 0 0;
+  font-size: 11px;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
